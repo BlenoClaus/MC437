@@ -1,9 +1,16 @@
 package com.mc437.produshow.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -30,10 +37,19 @@ public class Product {
 	private Long weight;
 	
 	@Column(name="category")
+	@Enumerated(value=EnumType.STRING)
 	private ProductCategory category;
 	
 	@Column(name="price")
 	private Long price;
+	
+	@OneToMany(cascade={CascadeType.ALL})
+	@JoinColumn(name="product_id")
+	private List<Attribute> attributes;
+	
+	@OneToMany(cascade={CascadeType.ALL})
+	@JoinColumn(name="product_id")
+	private List<Image> images;
 
 	public Long getId() {
 		return id;
@@ -81,6 +97,22 @@ public class Product {
 	
 	public void setPrice(Long price) {
 		this.price = price;
+	}
+	
+	public List<Attribute> getAttributes() {
+		return attributes;
+	}
+	
+	public void setAttributes(List<Attribute> attributes) {
+		this.attributes = attributes;
+	}
+	
+	public List<Image> getImages() {
+		return images;
+	}
+	
+	public void setImages(List<Image> images) {
+		this.images = images;
 	}
 	
 }
