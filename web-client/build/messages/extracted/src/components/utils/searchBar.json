@@ -1,0 +1,12 @@
+[
+  {
+    "id": "SearchBar.placeholder",
+    "description": "Placeholder on main searchbar",
+    "defaultMessage": "bla ble blu"
+  },
+  {
+    "id": "SearchBar.novoCampo",
+    "description": "Placeholder ondsds main searchbar",
+    "defaultMessage": "bla ble blu"
+  }
+]
