@@ -20,6 +20,7 @@ public class ProductValidator implements Validator {
 	public void validate(Object obj, Errors e) {
 		ValidationUtils.rejectIfEmpty(e, "name", "empty");
 		ValidationUtils.rejectIfEmpty(e, "price", "empty");
+		ValidationUtils.rejectIfEmpty(e, "category", "empty");
 	}
 
 }
