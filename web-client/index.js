@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App.js';
 import {IntlProvider, FormattedMessage, addLocaleData } from 'react-intl';
 import localeMessages from './src/translations/translationData.json';
-import router from './src/router'
+// import router from './src/router'
 
 //Adicionar idiomas suportados
 const languages = require('./src/constants/Languages');
@@ -31,10 +31,4 @@ if (!(localeCode in languages)) {
   localeCode = languages[0];
 }
 
-ReactDOM.render(
-  (
-    <IntlProvider locale={localeCode} messages={localeMessages[localeCode]}>
-      {router}
-    </IntlProvider>
-  )
-  , document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

@@ -3,10 +3,8 @@ import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 
 export default (
 
-  <BrowserRouter>
-    <div>
-      <Route exact path='/'/>
-    </div>
-  </BrowserRouter>
+	<BrowserRouter>
+		<Route exact path='/' component={App}/>
+	</BrowserRouter>
 
 )
