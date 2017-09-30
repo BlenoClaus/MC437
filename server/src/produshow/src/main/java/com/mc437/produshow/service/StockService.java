@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.mc437.produshow.GeneralException;
 import com.mc437.produshow.model.Stock;
@@ -18,7 +17,10 @@ public class StockService {
 	
 	@Autowired ProductService productService;
 	
-	public Page<Stock> findAll (Long productId, Pageable p) {
+	public Page<Stock> findAll (Long productId, Pageable p) throws GeneralException {
+		
+		productService.findById(productId);
+		
 		return stockRepository.findByProductId(productId, p);
 	}
 	

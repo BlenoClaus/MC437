@@ -15,18 +15,8 @@ public class StockValidator implements Validator {
 
 	@Override
 	public void validate(Object obj, Errors e) {
-		ValidationUtils.rejectIfEmpty(e, "productId", "empty");
 		ValidationUtils.rejectIfEmpty(e, "amount", "empty");
 		ValidationUtils.rejectIfEmpty(e, "zip", "empty");
-		
-		Stock stock = (Stock) obj;
-		if (checkAmount(stock)) {
-			e.rejectValue("amount", "amount.empty");
-		}
-	}
-	
-	private boolean checkAmount(Stock stock) {
-		return stock.getAmount() > 0 ;
 	}
 
 }

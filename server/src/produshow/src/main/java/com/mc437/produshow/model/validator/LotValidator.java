@@ -16,8 +16,6 @@ public class LotValidator implements Validator {
 	@Override
 	public void validate(Object obj, Errors e) {
 		ValidationUtils.rejectIfEmpty(e, "amount", "empty");
-		ValidationUtils.rejectIfEmpty(e, "productId", "empty");
-		ValidationUtils.rejectIfEmpty(e, "stock", "empty");
 		ValidationUtils.rejectIfEmpty(e, "action", "empty");
 
 		Lot lot = (Lot) obj;

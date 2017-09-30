@@ -1,0 +1,13 @@
+INSTALL NPM
+############
+Se vira (sudo apt get ou algo assim)
+
+INSTALL DEPENDENCIES
+######################
+sudo npm install (acho q precisa do sudo)
+
+EXECUTAR PROJETO
+###################
+sudo npm start
+
+Após executado, qualquer alteração no código recarrega automaticamente ( portanto só é executado 1 vez por "dia")

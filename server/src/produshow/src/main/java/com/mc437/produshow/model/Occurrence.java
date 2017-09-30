@@ -1,20 +1,21 @@
 package com.mc437.produshow.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+@Table(name = "occurrence")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Occurrence {
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@ManyToOne
-	@JoinColumn(name = "lot_id")
-	private Lot lot;
 	
 	@Column(name = "amount")
 	private Long amount;
@@ -24,6 +25,9 @@ public class Occurrence {
 	
 	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "lot_id")
+	private Long lotId;
 
 	public Long getId() {
 		return id;
@@ -31,14 +35,6 @@ public class Occurrence {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Lot getLot() {
-		return lot;
-	}
-
-	public void setLot(Lot lot) {
-		this.lot = lot;
 	}
 
 	public Long getAmount() {
@@ -63,6 +59,14 @@ public class Occurrence {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public Long getLotId() {
+		return lotId;
+	}
+	
+	public void setLotId(Long lotId) {
+		this.lotId = lotId;
 	}
 	
 }

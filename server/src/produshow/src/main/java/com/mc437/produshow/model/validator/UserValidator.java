@@ -18,5 +18,19 @@ public class UserValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(e, "token", "empty");
 		ValidationUtils.rejectIfEmpty(e, "username", "empty");
 		ValidationUtils.rejectIfEmpty(e, "password", "empty");
+		
+		User user = (User) obj;
+		
+		if (user.getUsername() != null) {
+			if (user.getUsername().length() > 10 || user.getUsername().length() < 4) {
+				e.reject("USERNAME_NOT_BETWEEN_4_10_CHARS");
+			}
+		}
+		
+		if (user.getPassword() != null) {
+			if (user.getPassword().length() > 10 || user.getPassword().length() < 4) {
+				e.reject("PASSWORD_NOT_BETWEEN_4_10_CHARS");
+			}
+		}
 	}
 }

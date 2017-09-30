@@ -4,10 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -25,13 +24,9 @@ public class Lot {
 	@Column(name = "action")
 	private Action action;
 	
-	@ManyToOne
-	@JoinColumn(name = "product_id")
-	private Product productId;
-	
-	@ManyToOne
-	@JoinColumn(name = "stock_id")
-	private Stock stock;
+	@JsonIgnore
+	@Column(name = "stock_id")
+	private Long stockId;
 
 	public Long getId() {
 		return id;
@@ -56,21 +51,13 @@ public class Lot {
 	public void setAction(Action action) {
 		this.action = action;
 	}
-
-	public Product getProductId() {
-		return productId;
+	
+	public Long getStockId() {
+		return stockId;
 	}
-
-	public void setProductId(Product productId) {
-		this.productId = productId;
-	}
-
-	public Stock getStock() {
-		return stock;
-	}
-
-	public void setStock(Stock stock) {
-		this.stock = stock;
+	
+	public void setStockId(Long stockId) {
+		this.stockId = stockId;
 	}
 	
 }
