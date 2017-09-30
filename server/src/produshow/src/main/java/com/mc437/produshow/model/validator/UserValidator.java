@@ -15,7 +15,6 @@ public class UserValidator implements Validator {
 
 	@Override
 	public void validate(Object obj, Errors e) {
-		ValidationUtils.rejectIfEmpty(e, "token", "empty");
 		ValidationUtils.rejectIfEmpty(e, "username", "empty");
 		ValidationUtils.rejectIfEmpty(e, "password", "empty");
 		
