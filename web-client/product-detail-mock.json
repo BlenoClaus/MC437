@@ -1,0 +1,23 @@
+{
+  "product": { 
+  				"name" : "Processador Intel Core i7-7700 Kaby Lake 7a Geração",
+				"description" : "Cache 8MB, 3.6GHz (4.2GHz Max Turbo), LGA 1151 Intel HD Graphics BX80677I77700",
+				"price" : 1430.57,
+				"category" : "AA",
+				"images" : [
+					{
+						"url" : "https://images3.kabum.com.br/produtos/fotos/84403/84403_index_gg.jpg"
+					},
+					{
+						"url" : "https://images.kabum.com.br/produtos/fotos/84403/84403_1483533048_gg.jpg"
+					},
+					{
+						"url" : "https://images.kabum.com.br/produtos/fotos/84403/84403_1483533065_gg.jpg"
+					}
+				]
+  			},
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}

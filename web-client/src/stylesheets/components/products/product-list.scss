@@ -5,4 +5,10 @@
 	font-weight: lighter;
 	margin-bottom: 20px;
 	text-decoration: italic;
+	display: flex;
+
+	button {
+		margin-left: 20px;
+		cursor: pointer;
+	}
 }

@@ -1,0 +1,39 @@
+.product-detail-container {
+	h2 {
+		margin-bottom: 20px;
+	}
+	img {
+		width: 150px;
+		height: 150px;
+		margin-right: 20px;
+	}
+
+	.com-details {
+		background-color: #eee;
+		padding: 20px;
+
+		.row {
+			margin: 0px;
+		}
+
+		.description {
+			margin-right: 20px;
+		}
+
+		.price {
+			color: #00C800;
+			font-weight: bold;
+			font-size: 14pt;
+		}
+
+		.cat {
+			font-style: italic;
+			font-size: 8pt;
+		}
+
+		a.edit {
+			font-size: 10pt;
+			margin-top: 20px;
+		}
+	}
+}
