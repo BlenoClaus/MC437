@@ -24,13 +24,20 @@ public class ProductValidator implements Validator {
 		
 		Product product = (Product) obj;
 		if (checkDescriptionSize(product)) {
-			e.rejectValue("description", "description.empty");
+			e.rejectValue("description", "description.invalid");
+		}
+		if (checkNameSize(product)) {
+			e.rejectValue("name", "name.invalid");
 		}
 		
 	}
 
 	private boolean checkDescriptionSize(Product product) {
 		return product.getDescription().length() > 250 ;
+	}
+	
+	private boolean checkNameSize(Product product) {
+		return product.getName().length() > 250 ;
 	}
 	
 }
