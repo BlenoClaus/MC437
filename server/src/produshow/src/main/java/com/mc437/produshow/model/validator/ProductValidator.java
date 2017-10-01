@@ -21,6 +21,23 @@ public class ProductValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(e, "name", "empty");
 		ValidationUtils.rejectIfEmpty(e, "price", "empty");
 		ValidationUtils.rejectIfEmpty(e, "category", "empty");
+		
+		Product product = (Product) obj;
+		if (checkDescription(product)) {
+			e.rejectValue("description", "description.invalid");
+		}
+		if (checkName(product)) {
+			e.rejectValue("name", "name.invalid");
+		}
+		
 	}
 
+	private boolean checkDescription(Product product) {
+		return product == null || product.getDescription() == null || product.getDescription().length() > 250;
+	}
+	
+	private boolean checkName(Product product) {
+		return product == null || product.getName() == null || product.getName().length() > 250 ;
+	}
+	
 }

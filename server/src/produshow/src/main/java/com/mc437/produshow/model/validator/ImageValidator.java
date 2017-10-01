@@ -4,6 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import com.mc437.produshow.model.Attribute;
 import com.mc437.produshow.model.Image;
 
 public class ImageValidator implements Validator{
@@ -16,6 +17,14 @@ public class ImageValidator implements Validator{
 	@Override
 	public void validate(Object obj, Errors e) {
 		ValidationUtils.rejectIfEmpty(e, "url", "empty");
+		
+		if (checkUrl((Image)obj)) {
+			e.rejectValue("url", "url.invalid");
+		}
+	}
+	
+	private boolean checkUrl(Image image) {
+		return image == null || image.getUrl() == null || image.getUrl().length() > 145 ;
 	}
 
 }

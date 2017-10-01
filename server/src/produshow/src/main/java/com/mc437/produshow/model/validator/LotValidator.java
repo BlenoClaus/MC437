@@ -25,7 +25,7 @@ public class LotValidator implements Validator {
 	}
 
 	private boolean checkAmount(Lot lot) {
-		return lot.getAmount() > 0;
+		return lot == null || lot.getAmount() == null || lot.getAmount() < 0;
 	}
 
 }
