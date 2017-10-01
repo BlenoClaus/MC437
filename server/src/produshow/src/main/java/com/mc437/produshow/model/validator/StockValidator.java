@@ -19,13 +19,13 @@ public class StockValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(e, "amount", "empty");
 		ValidationUtils.rejectIfEmpty(e, "zip", "empty");
 		
-		if (checkZipSize((Stock)obj)) {
+		if (checkZip((Stock)obj)) {
 			e.rejectValue("zip", "zip.invalid");
 		}
 	}
 	
-	private boolean checkZipSize(Stock stock) {
-		return stock.getZip().length() > 10 ;
+	private boolean checkZip(Stock stock) {
+		return stock == null || stock.getZip() == null || stock.getZip().length() > 10 ;
 	}
 
 }

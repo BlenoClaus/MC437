@@ -20,21 +20,21 @@ public class AttibuteValidator implements Validator{
 		ValidationUtils.rejectIfEmpty(e, "value", "empty");
 		
 		Attribute attribute = (Attribute) obj;
-		if (checkNameSize(attribute)) {
+		if (checkName(attribute)) {
 			e.rejectValue("name", "name.invalid");
 		}
 		
-		if (checkValueSize(attribute)) {
+		if (checkValue(attribute)) {
 			e.rejectValue("value", "value.invalid");
 		}
 	}
 
-	private boolean checkNameSize(Attribute attribute) {
-		return attribute.getName().length() > 45 ;
+	private boolean checkName(Attribute attribute) {
+		return attribute == null || attribute.getName() == null || attribute.getName().length() > 45 ;
 	}
 	
-	private boolean checkValueSize(Attribute attribute) {
-		return attribute.getName().length() > 45 ;
+	private boolean checkValue(Attribute attribute) {
+		return attribute == null || attribute.getValue() == null || attribute.getValue().length() > 45 ;
 	}
 	
 }

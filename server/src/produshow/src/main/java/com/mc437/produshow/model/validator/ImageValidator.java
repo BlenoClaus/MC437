@@ -18,13 +18,13 @@ public class ImageValidator implements Validator{
 	public void validate(Object obj, Errors e) {
 		ValidationUtils.rejectIfEmpty(e, "url", "empty");
 		
-		if (checkUrlSize((Image)obj)) {
+		if (checkUrl((Image)obj)) {
 			e.rejectValue("url", "url.invalid");
 		}
 	}
 	
-	private boolean checkUrlSize(Image image) {
-		return image.getUrl().length() > 145 ;
+	private boolean checkUrl(Image image) {
+		return image == null || image.getUrl() == null || image.getUrl().length() > 145 ;
 	}
 
 }
