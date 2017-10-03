@@ -70,7 +70,7 @@ class ProductList extends React.Component {
 						<select name="products" onChange={this.changeProduct}>
 							{products}
 						</select>
-						<button onClick={this.sendToProduct} className="btn btn-secondary">
+						<button onClick={this.sendToProduct} className="btn btn-primary">
 							Ver detalhes
 						</button>
 					</div>

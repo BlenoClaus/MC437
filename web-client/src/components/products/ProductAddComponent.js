@@ -6,7 +6,8 @@ class ProductAdd extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleSubmit(event) {
@@ -24,6 +25,10 @@ class ProductAdd extends React.Component {
 			});
 	}
 
+	handleChange(event) {
+		console.log(event.target.name);
+	}
+
 	render() {
 		return (
 			<div className="product-add-container">
@@ -33,31 +38,31 @@ class ProductAdd extends React.Component {
 					<div className="form-group">
 						<label htmlFor="name">Nome</label>
 						<br />
-						<input type="text" name="name" id="name" />
+						<input type="text" name="name" id="name" onChange={this.handleChange} />
 					</div>
 
 					<div className="form-group">
 						<label htmlFor="description">Descrição</label>
 						<br />
-						<input type="text" name="description" id="description" />
+						<input type="text" name="description" id="description" onChange={this.handleChange} />
 					</div>
 
 					<div className="form-group">
 						<label htmlFor="price">Preço</label>
 						<br />
-						<input type="text" name="price" id="price" />
+						<input type="text" name="price" id="price" onChange={this.handleChange} />
 					</div>
 
 					<div className="form-group">
 						<label htmlFor="category">Categoria</label>
 						<br />
-						<input type="text" name="category" id="category" />
+						<input type="text" name="category" id="category" onChange={this.handleChange} />
 					</div>
 
 					<div className="form-group">
 						<label htmlFor="image">URL Imagem</label>
 						<br />
-						<input type="text" name="image" id="image" />
+						<input type="text" name="image" id="image" onChange={this.handleChange} />
 					</div>
 
 					<div className="form-group">
