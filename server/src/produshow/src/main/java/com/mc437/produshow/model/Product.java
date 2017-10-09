@@ -37,7 +37,6 @@ public class Product {
 	private Long amount;
 	
 	@Column(name="category")
-	@Enumerated(value=EnumType.STRING)
 	private String category;
 	
 	@Column(name="price")
