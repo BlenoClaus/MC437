@@ -38,7 +38,7 @@ public class Product {
 	
 	@Column(name="category")
 	@Enumerated(value=EnumType.STRING)
-	private ProductCategory category;
+	private String category;
 	
 	@Column(name="price")
 	private Long price;
@@ -83,11 +83,11 @@ public class Product {
 		this.amount = amount;
 	}
 
-	public ProductCategory getCategory() {
+	public String getCategory() {
 		return category;
 	}
-
-	public void setCategory(ProductCategory category) {
+	
+	public void setCategory(String category) {
 		this.category = category;
 	}
 	
