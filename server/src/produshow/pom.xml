@@ -4,6 +4,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
 
+	<repositories>
+    	<repository>
+    		<id>my-repo1</id>
+      		<name>your custom repo</name>
+      		<url>http://source.mysema.com/maven2/releases</url>
+    	</repository>
+    </repositories>
+
 	<groupId>com.mc437</groupId>
 	<artifactId>produshow</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

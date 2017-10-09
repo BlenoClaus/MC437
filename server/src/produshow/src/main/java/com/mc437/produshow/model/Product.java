@@ -33,8 +33,8 @@ public class Product {
 	@Column(name="description")
 	private String description;
 	
-	@Column(name="weight")
-	private Long weight;
+	@Column(name="amount")
+	private Long amount;
 	
 	@Column(name="category")
 	@Enumerated(value=EnumType.STRING)
@@ -75,12 +75,12 @@ public class Product {
 		this.description = description;
 	}
 
-	public Long getWeight() {
-		return weight;
+	public Long getAmount() {
+		return amount;
 	}
-
-	public void setWeight(Long weight) {
-		this.weight = weight;
+	
+	public void setAmount(Long amount) {
+		this.amount = amount;
 	}
 
 	public ProductCategory getCategory() {

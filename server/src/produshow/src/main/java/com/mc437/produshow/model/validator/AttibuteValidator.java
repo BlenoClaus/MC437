@@ -5,7 +5,6 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.mc437.produshow.model.Attribute;
-import com.mc437.produshow.model.Product;
 
 public class AttibuteValidator implements Validator{
 

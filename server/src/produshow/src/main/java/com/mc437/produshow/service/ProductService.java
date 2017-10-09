@@ -54,4 +54,21 @@ public class ProductService {
 		
 	}
 	
+	public Long removeSome (Long productId, Long amount) throws GeneralException {
+		Product product = productRepository.findOne(productId);
+		
+		if (product.getAmount() < amount) {
+			throw new GeneralException("NOT_ENOUGH_STOCK");
+		}
+		product.setAmount(product.getAmount() - amount);
+		
+		productRepository.save(product);
+		
+		return product.getAmount();
+	}
+	
+	public Page<Product> searchProducts(String query, Pageable p) {
+		return productRepository.findByNameContaining(query, p);
+	}
+	
 }

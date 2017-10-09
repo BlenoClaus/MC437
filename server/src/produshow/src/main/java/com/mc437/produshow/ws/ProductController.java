@@ -10,25 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.mc437.produshow.GeneralException;
 import com.mc437.produshow.model.Product;
-import com.mc437.produshow.model.validator.LotValidator;
 import com.mc437.produshow.model.validator.ProductValidator;
 import com.mc437.produshow.service.ProductService;
+import com.mc437.produshow.ws.body.Amount;
 
 /**
  * Created by gustavo on 21/09/17.
  */
-@Controller
+@RestController
 @RequestMapping("/product")
 public class ProductController {
 
@@ -36,28 +35,39 @@ public class ProductController {
 	private ProductService productService; 
 	
     @RequestMapping(value = {"", "/"}, method = GET)
-    @ResponseBody
     public Page<Product> findAll(Pageable p) {
-    	System.out.println("context " + SecurityContextHolder.getContext().getAuthentication().getDetails());
         return productService.findAll(p);
+    }
+    
+    @RequestMapping(value = {"search"}, method = GET)
+    public Page<Product> search(@RequestParam("query") String query, Pageable p) {
+    	return productService.searchProducts(query, p);
     }
 
     @RequestMapping(value = "/{productId}", method = GET)
-    @ResponseBody
     public Product findById(@PathVariable("productId") long productId) throws GeneralException {
         return productService.findById(productId);
+    }
+    
+    @RequestMapping(value = "/{productId}/remove", method = POST)
+    public Amount remove(@PathVariable("productId") long productId, @RequestBody Amount amount) throws GeneralException {
+        if (amount == null) {
+        	throw new GeneralException("AMOUNT_VALUE_MUST_NOT_BE_NULL");
+        } else {
+        	Amount resultAmount = new Amount();
+        	resultAmount.setAmount(productService.removeSome(productId, amount.getAmount()));
+        	return resultAmount;
+        }
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "", method = POST)
-    @ResponseBody
     public Product createProduct(@Valid @RequestBody Product product) throws GeneralException {
         return productService.create(product);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/{productId}", method = PUT)
-    @ResponseBody
     public Product updateProduct(@PathVariable("productId") long productId, @RequestBody Product product) throws GeneralException {
         return productService.update(product, productId);
     }
