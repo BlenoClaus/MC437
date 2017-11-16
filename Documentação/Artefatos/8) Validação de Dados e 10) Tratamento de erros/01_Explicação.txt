@@ -1,0 +1,1 @@
+Essa são as classes reponsável por validar a criação dos beans de dados, evitando que se cria objetos inválidos.
