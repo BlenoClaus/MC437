@@ -3,10 +3,13 @@ package com.mc437.produshow.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.mc437.produshow.GeneralException;
 import com.mc437.produshow.model.Product;
+import com.mc437.produshow.model.SortOrderType;
 import com.mc437.produshow.repository.ProductRepository;
 
 @Service
@@ -24,7 +27,7 @@ public class ProductService {
 		
 		if (product == null) {
 			throw new GeneralException("PRODUCT_NOT_FOUND");
-		}
+		}	
 		
 		return product;
 	}
@@ -67,8 +70,33 @@ public class ProductService {
 		return product.getAmount();
 	}
 	
-	public Page<Product> searchProducts(String query, Pageable p) {
-		return productRepository.findByNameContaining(query, p);
+	public Page<Product> searchProducts(String query, String category, SortOrderType sortOrder, Pageable p) {
+//		System.out.println("query");
+//		System.out.println(query);
+//		System.out.println("category");
+//		System.out.println(category);
+//		System.out.println("sortOrder");
+//		System.out.println(sortOrder);
+//		return null;
+//		return productRepository.findByNameContaining(query, p);
+		if (query == null) {
+			query = "";
+		}
+		if (sortOrder == null) {
+			sortOrder = SortOrderType.LOWER_PRICE;
+		}
+		
+		Sort sort = null;
+		if (sortOrder != null && sortOrder.equals(SortOrderType.HIGHEST_PRICE)) {
+			sort = new Sort(Direction.DESC, "price");
+		} else {
+			sort = new Sort(Direction.ASC, "price");
+		}
+		
+		if (category != null) {
+			return productRepository.findByNameContainingAndCategory(query, category, p);
+		} else {
+			return productRepository.findByNameContaining(query, p);
+		}
 	}
-	
 }

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mc437.produshow.GeneralException;
 import com.mc437.produshow.model.Product;
+import com.mc437.produshow.model.SortOrderType;
 import com.mc437.produshow.model.validator.ProductValidator;
 import com.mc437.produshow.service.ProductService;
 import com.mc437.produshow.ws.body.Amount;
@@ -40,8 +41,18 @@ public class ProductController {
     }
     
     @RequestMapping(value = {"search"}, method = GET)
-    public Page<Product> search(@RequestParam("query") String query, Pageable p) {
-    	return productService.searchProducts(query, p);
+    public Page<Product> search(@RequestParam(name = "query", required=false) String query,
+    			@RequestParam(name = "category", required=false) String category,
+    			@RequestParam(name = "sortOrder", required=false) String sortOrder,
+    			Pageable p) {
+    	
+    	SortOrderType sortOrderType = null;
+    	if (sortOrder != null && sortOrder.equals("high")) {
+    		sortOrderType = SortOrderType.HIGHEST_PRICE;
+    	} else	if (sortOrder != null && sortOrder.equals("low")) {
+    		sortOrderType = SortOrderType.LOWER_PRICE;
+    	}
+    	return productService.searchProducts(query, category, sortOrderType, p);
     }
 
     @RequestMapping(value = "/{productId}", method = GET)
