@@ -1,0 +1,1 @@
+Essa são as classes responsavel pela tratamento dos servições http recebidos
