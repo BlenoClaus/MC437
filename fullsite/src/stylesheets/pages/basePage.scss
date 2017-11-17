@@ -1,10 +1,10 @@
 .base-page {
-  background-color: yellow;
   min-height: 100vh;
   display: flex;
   flex-flow: column;
   .base-page-content {
-    background-color: pink;
+    background-color: #EEEEEE;
+    padding: 20px;
     flex: 1;
   }
 }

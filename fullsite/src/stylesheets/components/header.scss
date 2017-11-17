@@ -1,4 +1,15 @@
 .main-header {
-  background-color: red;
-  height: 50px;
+  text-align: center;
+  padding: 20px 10px;;
+  display: inline;
+  position: relative;
+  background-color: #161552;
+
+  .logo-header {
+    height: 78%;
+    display: inline;
+    position: absolute;
+    left: 30px;
+    top: 8px;
+  }
 }

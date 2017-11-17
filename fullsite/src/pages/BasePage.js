@@ -10,7 +10,7 @@ class BasePage extends Component {
   render() {
     return (
       <div className="base-page">
-        <Header/>
+        <Header headerSearch={this.props.headerSearch}/>
         <div className="base-page-content">
           {this.props.children}
         </div>

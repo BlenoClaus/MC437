@@ -36,8 +36,7 @@ module.exports = {
    },
    plugins: [
      new webpack.DefinePlugin({
-      //  API_URL : JSON.stringify("http://prod.buscaya.com.mx/api/"),
-       GA_ID : JSON.stringify("UA-107879815-1"),
+       API_URL : JSON.stringify("http://localhost:8084/")
      }),
    ],
 }

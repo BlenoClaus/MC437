@@ -1,0 +1,35 @@
+.product-card {
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  height: 300px;
+
+  box-shadow: 5px 5px 5px hsla(0,0%,50%,.3);
+  border-radius: 4px!important;
+  border-color: black;
+
+  .image-container {
+    text-align: center;
+    img {
+      max-height: 50%;
+      max-width: 50%;
+    }
+  }
+
+  .product-name-box {
+    margin-top: 15px;
+  }
+
+  .product-price-box {
+    color: green;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 60px;
+    position: absolute;
+    bottom: 10px;
+    left: 70px;
+  }
+}
