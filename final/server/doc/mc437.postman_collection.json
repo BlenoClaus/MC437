@@ -1,0 +1,131 @@
+{
+	"id": "4216737f-6484-e442-7b1a-c919f0f12bfd",
+	"name": "mc437",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "f6c0fdb4-5ff3-d49c-96e7-5cd5a916ff05",
+			"name": "client - direct",
+			"description": "",
+			"order": [
+				"9e0dcae0-356c-146c-21d3-4c2a1831e93a",
+				"61db1da6-fc71-aa4d-6377-89c84fd75579",
+				"fa851eb0-4474-ebc2-cf9a-58b8468c0b12"
+			],
+			"owner": "310239"
+		},
+		{
+			"id": "4e38e03c-dd7b-dce1-17a5-c9d5104481f3",
+			"name": "product",
+			"description": "",
+			"order": [
+				"850c3ea1-d48e-f27a-81e7-75f7bfb123e6",
+				"ed201cdb-a980-0c27-9485-e1391dd5f4fd"
+			],
+			"owner": "310239"
+		}
+	],
+	"timestamp": 1510896068382,
+	"owner": "310239",
+	"public": false,
+	"requests": [
+		{
+			"id": "61db1da6-fc71-aa4d-6377-89c84fd75579",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{client-url}}/client/auth",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1511013122622,
+			"name": "auth client",
+			"description": "",
+			"collectionId": "4216737f-6484-e442-7b1a-c919f0f12bfd",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\" : \"usernamee\",\n\t\"password\" : \"senha\"\n}"
+		},
+		{
+			"id": "850c3ea1-d48e-f27a-81e7-75f7bfb123e6",
+			"headers": "",
+			"url": "{{host}}/product/1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1510896992136,
+			"name": "getProduct",
+			"description": "",
+			"collectionId": "4216737f-6484-e442-7b1a-c919f0f12bfd",
+			"responses": []
+		},
+		{
+			"id": "9e0dcae0-356c-146c-21d3-4c2a1831e93a",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{client-url}}/client",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1511013017423,
+			"name": "create client",
+			"description": "",
+			"collectionId": "4216737f-6484-e442-7b1a-c919f0f12bfd",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\" : \"usernamee\",\n\t\"name\" : \"lucas\",\n\t\"password\" : \"senha\",\n\t\"phone\" : \"929394995\",\n\t\"cpf\" : \"34224272873\",\n\t\"email\" : \"email@email.com\"\n\t\n}"
+		},
+		{
+			"id": "ed201cdb-a980-0c27-9485-e1391dd5f4fd",
+			"headers": "",
+			"url": "{{host}}/product/search?query&page=1&size=1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1510944545269,
+			"name": "search products",
+			"description": "",
+			"collectionId": "4216737f-6484-e442-7b1a-c919f0f12bfd",
+			"responses": []
+		},
+		{
+			"id": "fa851eb0-4474-ebc2-cf9a-58b8468c0b12",
+			"headers": "",
+			"url": "",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "4216737f-6484-e442-7b1a-c919f0f12bfd",
+			"data": null,
+			"dataMode": "params",
+			"name": "create client copy",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1510944910945,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "f6c0fdb4-5ff3-d49c-96e7-5cd5a916ff05"
+		}
+	]
+}
