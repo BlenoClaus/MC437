@@ -51,7 +51,6 @@ public class ProductService {
 	
 	@Bean
 	private ProductModule productModule () {
-		System.out.println("base url " + this.baseUrl);
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl(this.baseUrl)
 				.addConverterFactory(JacksonConverterFactory.create()).build();

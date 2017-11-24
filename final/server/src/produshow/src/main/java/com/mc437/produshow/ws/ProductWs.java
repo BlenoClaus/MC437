@@ -22,7 +22,7 @@ import com.mc437.produshow.service.ProductService;
 @RestController
 @CrossOrigin
 @RequestMapping("/product")
-public class ProductController {
+public class ProductWs {
 	
 	@Autowired
 	private ProductService productService;

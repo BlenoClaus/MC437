@@ -16,7 +16,7 @@ class HomePage extends Component {
 
   searchProducts (query) {
     $.ajax({
-      url : API_URL + "product/search?size=30&query=" + query,
+      url : API_URL + "product/search?size=30&query=" + (query ? query : ""),
    }).done( (data) => {
      this.setState({
        products : data.content
@@ -25,7 +25,13 @@ class HomePage extends Component {
   }
 
   componentDidMount () {
-    this.searchProducts("");
+    this.searchProducts(this.props.match.params.query);
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.location != this.props.location) {
+      this.searchProducts(nextProps.match.params.query);
+    }
   }
 
   render() {

@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 
+
+import {withRouter} from 'react-router-dom'
+
 require('../../stylesheets/components/searchBar.scss');
 class SearchBar extends Component {
 
@@ -7,15 +10,23 @@ class SearchBar extends Component {
     super(props);
 
     this.state = {
-      query : ""
+      query : this.props.match.params.query
     }
 
     this.searchButtonClicked = this.searchButtonClicked.bind(this);
     this.searchQueryChanged = this.searchQueryChanged.bind(this);
+    this.keyPressed = this.keyPressed.bind(this);
   }
 
-  searchButtonClicked (e) {
+  searchButtonClicked () {
     this.props.search(this.state.query);
+  }
+
+
+  keyPressed(e) {
+    if(e.key == "Enter") {
+      this.searchButtonClicked();
+    }
   }
 
   searchQueryChanged (e) {
@@ -25,13 +36,14 @@ class SearchBar extends Component {
   }
 
   render () {
+    const {query} = this.state
     return (
       <div className="search-bar">
-        <input type="text" onChange={this.searchQueryChanged}/>
+        <input type="text" onChange={this.searchQueryChanged}  onKeyPress={this.keyPressed} value={query}/>
         <button className="fa fa-search" onClick={this.searchButtonClicked}/>
       </div>
     )
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

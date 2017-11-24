@@ -1,0 +1,51 @@
+.right-item {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.authentication-link {
+  color: white;
+}
+
+.profile-thumb {
+  border-radius: 15px;
+  color: #161552;
+  background-color: aliceblue;
+  padding: 10px 20px;
+
+  ul {
+    padding: 0px;
+
+    li {
+      padding: 6px 0px;
+    }
+
+    .menu-item {
+
+    }
+
+    .logout {
+      cursor: pointer;
+      color: red;
+    }
+
+    list-style-type: none;
+  }
+
+  i {
+    margin-left: 10px;
+  }
+}
+
+.profile-loading {
+  color: #161552;
+  background-color: aliceblue;
+  padding: 10px 20px;
+  border-radius: 15px;
+
+
+  i {
+    margin-left: 10px;
+  }
+}
