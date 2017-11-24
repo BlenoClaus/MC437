@@ -14,7 +14,11 @@ public class CreateTransactionResponse {
 	
 
 	@JsonIgnoreProperties(ignoreUnknown=true)
-	class Data {
+	public class Data {
+		
+		public Data() {
+			// TODO Auto-generated constructor stub
+		}
 		
 		@JsonProperty("estado")
 		private TransactionState state;
@@ -60,6 +64,28 @@ public class CreateTransactionResponse {
 			this.id = id;
 		} 
 	}
+
+
+	public Data getData() {
+		return data;
+	}
+
+
+	public void setData(Data data) {
+		this.data = data;
+	}
+
+
+	public String getMsg() {
+		return msg;
+	}
+
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
+	
 	
 	
 }

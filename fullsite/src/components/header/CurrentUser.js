@@ -91,6 +91,11 @@ class CurrentUser extends Component {
                     perfil
                   </Link>
                 </li>
+                <li className="menu-item">
+                  <Link to="/transaction">
+                    histórico
+                  </Link>
+                </li>
                 <li className="menu-item logout" onClick={this.logoff}>
                   logout
                 </li>

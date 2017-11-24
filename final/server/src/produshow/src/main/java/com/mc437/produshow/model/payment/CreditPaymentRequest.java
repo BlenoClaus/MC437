@@ -2,67 +2,59 @@ package com.mc437.produshow.model.payment;
 
 import java.util.Date;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CreditPaymentRequest {
-
-	@JsonProperty("valor_total")
-	private long totalValue;
+	private Long totalValue;
 	
-	@JsonProperty("n_parcelas")
-	private long amountParcel;
+	private Long amountParcel;
 	
-	@JsonProperty("valor_parcela")
-	private long valueParcel;
+	private Long valueParcel;
 	
-	@JsonProperty("cnpj_loja")
 	private String taxDoc;
 	
-	@JsonProperty("format")
 	private PaymentFormat format;
 	
-	@JsonProperty("api_key")
 	private String apiKey;
 	
-	@JsonProperty("tipo_trans")
 	private Long transType;
 	
-	@JsonProperty("numero_cartao")
 	private String cardNumber;
 	
-	@JsonProperty("nome_cartao")
 	private String cardHolder;
 	
-	@JsonProperty("data_expiracao")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date expirationDate;
 	
-	@JsonProperty("codigo_verificacao")
 	private String cardSecurity;
 	
-	@JsonProperty("tipo_cartao")
 	private CardType cardType;
 
-	public long getTotalValue() {
+	public Long getTotalValue() {
 		return totalValue;
 	}
 
-	public void setTotalValue(long totalValue) {
+	public void setTotalValue(Long totalValue) {
 		this.totalValue = totalValue;
 	}
 
-	public long getAmountParcel() {
+	public Long getAmountParcel() {
 		return amountParcel;
 	}
 
-	public void setAmountParcel(long amountParcel) {
+	public void setAmountParcel(Long amountParcel) {
 		this.amountParcel = amountParcel;
 	}
 
-	public long getValueParcel() {
+	public Long getValueParcel() {
 		return valueParcel;
 	}
 
-	public void setValueParcel(long valueParcel) {
+	public void setValueParcel(Long valueParcel) {
 		this.valueParcel = valueParcel;
 	}
 
@@ -130,6 +122,7 @@ public class CreditPaymentRequest {
 		this.cardSecurity = cardSecurity;
 	}
 
+	@Enumerated(EnumType.STRING)
 	public CardType getCardType() {
 		return cardType;
 	}

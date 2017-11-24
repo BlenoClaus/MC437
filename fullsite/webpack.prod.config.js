@@ -1,3 +1,5 @@
+var webpack = require('webpack')
+
 module.exports = {
   entry : './index.js',
 
@@ -23,7 +25,19 @@ module.exports = {
          test: /\.scss$/,
          loaders: ['style-loader', 'css-loader', 'sass-loader'],
          exclude: ["./node_modules/"]
+       },
+       {
+         test: /\.(png|jpg|gif)$/,
+         loader : 'file-loader',
+         options : {
+           name : "/[path][name].[ext]"
+         }
        }
      ]
-   }
+   },
+   plugins: [
+     new webpack.DefinePlugin({
+       API_URL : JSON.stringify("http://localhost:8084/")
+     }),
+   ],
 }

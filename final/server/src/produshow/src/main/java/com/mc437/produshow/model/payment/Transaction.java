@@ -2,14 +2,15 @@ package com.mc437.produshow.model.payment;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Transaction {
 
-	private long id;
+	@JsonProperty("Id")
+	private String id;
 	
 	@JsonProperty("estado_transacao")
 	private TransactionState state;
@@ -18,6 +19,7 @@ public class Transaction {
 	private String paymentType;
 	
 	@JsonProperty("data")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date date;
 	
 	@JsonProperty("valor_total")
@@ -26,11 +28,11 @@ public class Transaction {
 	@JsonProperty("numero_cartao")
 	private String cardNumber;
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

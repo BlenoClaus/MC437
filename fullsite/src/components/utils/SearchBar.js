@@ -10,7 +10,7 @@ class SearchBar extends Component {
     super(props);
 
     this.state = {
-      query : this.props.match.params.query
+      query : this.props.match.params.query ? this.props.match.params.query : ""
     }
 
     this.searchButtonClicked = this.searchButtonClicked.bind(this);
